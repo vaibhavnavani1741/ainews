@@ -1,0 +1,43 @@
+# Each bucket: direct RSS feeds + Google News RSS search queries.
+# Verify feed URLs occasionally; publishers move them. Dead feeds are skipped with a log line.
+buckets:
+  auto_india:
+    feeds:
+      - {name: ET Auto, url: "https://auto.economictimes.indiatimes.com/rss/topstories"}
+      - {name: Autocar India, url: "https://www.autocarindia.com/rss/news"}
+      - {name: Rushlane, url: "https://www.rushlane.com/feed"}
+      - {name: Financial Express Auto, url: "https://www.financialexpress.com/auto/feed/"}
+    queries:
+      - 'India (automobile OR "auto components" OR OEM OR "two-wheeler" OR "electric vehicle" OR "auto ancillary")'
+      - 'India (SIAM OR ACMA OR "PLI auto" OR "Tata Motors" OR Mahindra OR Maruti OR "Bajaj Auto")'
+  auto_global:
+    feeds:
+      - {name: Electrek, url: "https://electrek.co/feed/"}
+      - {name: InsideEVs, url: "https://insideevs.com/rss/news/all/"}
+      - {name: Just Auto, url: "https://www.just-auto.com/feed/"}
+      - {name: Green Car Congress, url: "https://www.greencarcongress.com/index.xml"}
+      - {name: Automotive Dive, url: "https://www.automotivedive.com/feeds/news/"}
+    queries:
+      - '(automaker OR OEM OR "auto supplier" OR "electric vehicle" OR ADAS OR "battery cell") -India'
+      - '(Toyota OR Volkswagen OR Tesla OR BYD OR Hyundai OR Stellantis) (tariff OR production OR sales)'
+  elec_india:
+    feeds:
+      - {name: ET EnergyWorld, url: "https://energy.economictimes.indiatimes.com/rss/topstories"}
+      - {name: Mercom India, url: "https://mercomindia.com/feed/"}
+      - {name: Saur Energy, url: "https://www.saurenergy.com/feed"}
+      - {name: Electrical India, url: "https://www.electricalindia.in/feed/"}
+    queries:
+      - 'India (transformer OR switchgear OR "BESS" OR "battery energy storage" OR "smart meter" OR "power cable" OR conductor)'
+      - 'India (semiconductor OR "power electronics" OR "electric motor" OR compressor OR inverter OR "HVDC")'
+      - 'India (Siemens OR "Hitachi Energy" OR ABB OR Polycab OR KEI OR "Power Grid" OR "Waaree" OR "Genus Power")'
+  elec_global:
+    feeds:
+      - {name: Utility Dive, url: "https://www.utilitydive.com/feeds/news/"}
+      - {name: Energy-Storage.news, url: "https://www.energy-storage.news/feed/"}
+      - {name: EE Times, url: "https://www.eetimes.com/feed/"}
+      - {name: Electronics Weekly, url: "https://www.electronicsweekly.com/feed/"}
+      - {name: Semiconductor Engineering, url: "https://semiengineering.com/feed/"}
+      - {name: T&D World, url: "https://www.tdworld.com/rss"}
+    queries:
+      - '(transformer OR switchgear OR "battery energy storage" OR "smart meter" OR "power cable" OR HVDC) shortage OR order OR capacity -India'
+      - '(semiconductor OR "power electronics" OR "SiC" OR "GaN" OR "electric motor") -India'
